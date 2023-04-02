@@ -3,8 +3,8 @@ import {CartIcon, UserIcon} from "../icon";
 
 const Navbar = () => {
     return (
-        <div className=" bg-gray-300 flex h-15 my-1 mx-2 rounded-lg p-2 items-center text-gray-900">
-            <div className="mr-auto ml-1">
+        <div className=" bg-gray-100 flex h-15 my-1 mx-2 rounded-lg p-2 items-center text-gray-900 border-solid border-gray-200 border-2">
+            <div className="mr-auto ml-1 text-lg font-bold text-gray-700 tracking-wider">
                 Company
             </div>
             <div className="flex">
