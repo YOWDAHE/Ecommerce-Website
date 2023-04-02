@@ -3,7 +3,9 @@
 Variables
 ===============
 */
-
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 :root {
   --clr-primary: #645cff;
   --clr-primary-dark: #282566;
