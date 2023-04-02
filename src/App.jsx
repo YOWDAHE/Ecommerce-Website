@@ -1,9 +1,10 @@
 import Navbar from "./Components/Navbar";
-
+import { useSelector } from "react-redux";
 function App() {
+  const { isShowing } = useSelector((state) => state.cartShow);
   return (
     <div className="app">
-      <Navbar />
+      {isShowing && <Navbar />}
     </div>
   )
 }
