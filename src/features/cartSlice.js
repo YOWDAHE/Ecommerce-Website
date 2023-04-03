@@ -7,7 +7,7 @@ const initial = {
     isLoading: false,
 }
 
-export const CartSlice = createSlice({
+const CartSlice = createSlice({
     name: 'cart',
     initialState: initial,
     reducers: {
@@ -16,3 +16,6 @@ export const CartSlice = createSlice({
         }
     }
 })
+
+export default CartSlice.reducer;
+export const { emptyCart } = CartSlice.actions;

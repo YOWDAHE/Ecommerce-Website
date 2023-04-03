@@ -65,7 +65,7 @@ p {
   margin-bottom: 1.25rem;
 }
 
-.btn {
+#btn {
   text-transform: uppercase;
   background: var(--clr-primary);
   color: var(--clr-white);
@@ -75,11 +75,11 @@ p {
   font-weight: 700;
   transition: var(--transition);
   font-size: 0.875rem;
-  border: none;
+  /* border: none; */
   cursor: pointer;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
-.btn:hover {
+#btn:hover {
   color: var(--clr-primary);
   background: var(--clr-primary-light);
 }
