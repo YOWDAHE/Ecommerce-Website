@@ -108,3 +108,7 @@ p {
     line-height: 1;
   }
 }
+.body{
+  padding-left: 67%;
+  background-color: red;
+}

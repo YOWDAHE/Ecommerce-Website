@@ -1,9 +1,14 @@
 import { CartIconLarg } from "../icon"
 import { useSelector, useDispatch } from "react-redux"
 import { toggle } from "../features/cartButtonSlice";
+import ItemCountainer from "./ItemContainer";
+import CartItemContainer from "./CartItemContainer";
 
 const Cart = () => {
-    const { amount } = useSelector((state) => state.cart);
+    const { amount, cartItems } = useSelector((state) => state.cart);
+    const test = cartItems.filter(item => item.inCart == true);
+    console.log("testttt", test);
+    console.log(cartItems);
     const dispatch = useDispatch();
     if (amount === 0) {
         return (
@@ -22,7 +27,7 @@ const Cart = () => {
     }
   return (
     <div>
-        {amount}
+        {test.map(item => <CartItemContainer {...item}/>)}
     </div>
   )
 }

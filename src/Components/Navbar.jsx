@@ -3,12 +3,11 @@ import { useDispatch } from "react-redux";
 import { toggle } from "../features/cartButtonSlice";
 import { useSelector } from "react-redux";
 
-
 const Navbar = () => {
     const dispatch = useDispatch();
     const {amount} = useSelector((state) => state.cart)
     return (
-        <div className=" bg-gray-100 flex h-15 mt-4 mx-2 rounded-full p-2 px-4 items-center text-gray-900 border-solid border-gray-200 border-b-2">
+        <div className="bg-gray-100 flex h-15 mt-4 mx-2 rounded-full p-2 px-4 items-center text-gray-900 border-solid border-gray-200 border-b-2 md:w-3/5 ml-auto mr-auto ">
             <div className="mr-auto ml-1 text-lg font-bold text-gray-700 tracking-wider">
                 Company
             </div>
