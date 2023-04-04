@@ -7,9 +7,10 @@ import CartItemContainer from "./CartItemContainer";
 const Cart = () => {
     const { amount, cartItems } = useSelector((state) => state.cart);
     const test = cartItems.filter(item => item.inCart == true);
-    console.log("testttt", test);
-    console.log(cartItems);
+    // console.log("testttt", test);
+    // console.log(cartItems);
     const dispatch = useDispatch();
+    console.log(amount);
     if (amount === 0) {
         return (
             <div className="flex flex-col items-center">
@@ -27,6 +28,7 @@ const Cart = () => {
     }
   return (
     <div>
+
         {test.map(item => <CartItemContainer {...item}/>)}
     </div>
   )
