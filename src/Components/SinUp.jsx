@@ -3,8 +3,18 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebook, faGoogle } from "@fortawesome/free-brands-svg-icons";
 import { faX } from "@fortawesome/free-solid-svg-icons";
 import { togglePage } from "../features/SinUpSlice";
+import { useState } from "react";
 
 const SinUp = () => {
+
+    const [email, setemail] = useState("");
+    const [password, setPassword] = useState("");
+
+    const submiting = (e) => {
+        e.preventDefault();
+    }
+
+
     const { sinup, sinin } = useSelector((state) => state.sinUp);
     const dispatch = useDispatch();
 
@@ -16,13 +26,17 @@ const SinUp = () => {
               }}></FontAwesomeIcon>
               {sinup && <h4>Sin Up</h4> }
               {sinin && <h4>Sin In</h4>}
-              <input type="text" placeholder="Email" className="bg-white border-solid border-2 border-gray-400 rounded-lg px-2 h-8 w-4/5 text-sm mb-3" />
-              
-              <input type="password" placeholder="Password" className=" bg-white border-solid border-2 border-gray-400 rounded-lg px-2 h-8 w-4/5 text-sm mb-3"/>
+              <form action="" className="flex flex-col items-center w-full" onSubmit={submiting}>
+                  <input type="text" placeholder="Email" className="bg-white border-solid border-2 border-gray-400 rounded-lg px-2 h-8 w-4/5 text-sm mb-3" value={email} onChange={(e) => {
+                      setemail(e.target.value);
+                  } } />
+                
+                <input type="password" placeholder="Password" className=" bg-white border-solid border-2 border-gray-400 rounded-lg px-2 h-8 w-4/5 text-sm mb-3"/>
 
-              {sinup && <input type="password" placeholder="Confirm Password" className=" bg-white border-solid border-2 border-gray-400 rounded-lg px-2 h-8 w-4/5 text-sm mb-3" />}
-              
-              {sinup && <button className="mt-2 mb-2 px-6 py-2 bg-blue-600 rounded-xl text-white hover:bg-blue-700 ">Sin UP</button>}
+                {sinup && <input type="password" placeholder="Confirm Password" className=" bg-white border-solid border-2 border-gray-400 rounded-lg px-2 h-8 w-4/5 text-sm mb-3" />}
+                
+                {sinup && <button className="mt-2 mb-2 px-6 py-2 bg-blue-600 rounded-xl text-white hover:bg-blue-700 " type="submit">Submit</button>}
+              </form>
               {sinup && <button className="text-xs">Aready have an account?</button>}
 
               <div className="pt-4">
