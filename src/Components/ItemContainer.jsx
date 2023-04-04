@@ -10,7 +10,7 @@ const ItemCountainer = ({ id, title, price, img, inCart }) => {
         dispatch(addToCart(id));
     }
     return (
-        <div className="h-48 w-56 border-solid  border-gray-200 border-1 shadow-custom shadow-gray-400 m-2 flex flex-col items-center rounded-2xl overflow-hidden">
+        <div className="h-48 w-72 md:w-56 border-solid  border-gray-200 border-1 shadow-custom shadow-gray-400 m-2 flex flex-col items-center rounded-2xl overflow-hidden">
             <div className="h-24 w-full mb-3 flex justify-center">
                 <img src={img} alt={title} className="h-full "/>
             </div>

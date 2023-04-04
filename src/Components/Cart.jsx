@@ -3,6 +3,8 @@ import { useSelector, useDispatch } from "react-redux"
 import { toggle } from "../features/cartButtonSlice";
 import ItemCountainer from "./ItemContainer";
 import CartItemContainer from "./CartItemContainer";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGoogle, faYoutube } from "@fortawesome/free-brands-svg-icons";
 
 const Cart = () => {
     const { amount, cartItems } = useSelector((state) => state.cart);
@@ -29,7 +31,7 @@ const Cart = () => {
   return (
     <div>
 
-        {test.map(item => <CartItemContainer {...item}/>)}
+        {test.map(item => <CartItemContainer key={item.id} {...item}/>)}
     </div>
   )
 }
