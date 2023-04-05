@@ -6,13 +6,12 @@ import { togglePage, toggleSinup } from "../features/SinUpSlice";
 import { useState, useRef } from "react";
 import  "../features/Authentication";
 import { Authentication } from "../features/Authentication";
-import { createUserWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithPopup, signInWithEmailAndPassword } from "firebase/auth";
 import { auth, googleProvider } from "../features/firebaseConfig";
 
 const SinUp = () => {
     const dispatch = useDispatch();
     const { sinup, sinin } = useSelector((state) => state.sinUp);
-    const { isLoggedIn } = useSelector((state) => state.sinUp);
     const [email, setemail] = useState("");
     const [password, setPassword] = useState("");
     const [errMessage, setErrMessage] = useState(false);
@@ -26,6 +25,18 @@ const SinUp = () => {
             setPasswordCorrect(true);
         } else {
             setPasswordCorrect(false);
+        }
+    }
+    const siningIn = async () => {
+        try {
+            await signInWithEmailAndPassword(auth, email, password);
+        }
+        catch (error) {
+            const errorMessage = error.message;
+            const regex = /(?<=auth\/)(.*?)(?=\))/;
+            const match = errorMessage.match(regex);
+            errorHandle.current.innerHTML = errMessage;
+            setErrMessage(match[0]);
         }
     }
     const siningUp = async () => {
@@ -49,8 +60,11 @@ const SinUp = () => {
     const submiting = async (e) => {
         e.preventDefault();
         console.log(auth?.currentUser?.uid);
-        if (passwordCorrect === true) {
+        if (passwordCorrect === true && sinup) {
             siningUp();
+        }
+        else if (sinin) {
+            siningIn();
         }
     }
 

@@ -2,7 +2,7 @@ import { faL } from "@fortawesome/free-solid-svg-icons";
 import { createSlice } from "@reduxjs/toolkit";
 
 const init = {
-    SinUPIsShowing: true,
+    SinUPIsShowing: false,
     sinup: true,
     sinin: false,
     isLoggedIn: false,
