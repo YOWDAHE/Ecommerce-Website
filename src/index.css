@@ -112,3 +112,7 @@ p {
   padding-left: 67%;
   background-color: red;
 }
+
+.inp{
+  border: none;
+}
