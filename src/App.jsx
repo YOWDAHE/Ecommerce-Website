@@ -12,6 +12,7 @@ import { auth } from "./features/firebaseConfig";
 import { toggleLoggedFalse, toggleLoggedTrue } from "./features/SinUpSlice";
 
 
+
 function App() {
 
   const dispatch = useDispatch();
@@ -24,7 +25,6 @@ function App() {
   }, [cartItems])
 
   useEffect(() => {
-    console.log("changereeee");
     const listen = onAuthStateChanged(auth, (user) => {
       if (user) {
         dispatch(toggleLoggedTrue());

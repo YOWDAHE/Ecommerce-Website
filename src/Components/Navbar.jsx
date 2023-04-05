@@ -8,7 +8,9 @@ import { faL } from "@fortawesome/free-solid-svg-icons";
 const Navbar = () => {
     const [userOption, setUserOption] = useState(true);
     const dispatch = useDispatch();
-    const {amount} = useSelector((state) => state.cart)
+    const { amount } = useSelector((state) => state.cart)
+    const { isLoggedIn } = useSelector((state) => state.sinUp);
+
     return (
         <div>
             
@@ -30,7 +32,8 @@ const Navbar = () => {
             </div>
             {userOption && <div className=" h-10 w-11/12 flex items-center justify-center ml-auto mr-auto lg:justify-end md:w-3/5 ">
                 <div className="text-xs h-6 mx-2 md:mx-5 px-3 md:text-sm bg-gray-700 text-white rounded-full flex items-center hover:cursor-pointer hover:bg-gray-800 hover:px-5 transition-all">
-                    user name
+                    {isLoggedIn && 'Log Out'}
+                    {!isLoggedIn && 'Sign In'}
                 </div>
                 <div className="text-xs h-6 mx-2 md:mx-5 px-3 md:text-sm bg-gray-700 text-white rounded-full flex items-center hover:cursor-pointer hover:bg-gray-800 hover:px-5 transition-all">
                     Your Items

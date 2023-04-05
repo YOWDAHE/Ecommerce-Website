@@ -2,7 +2,7 @@ import { useSelector, useDispatch } from "react-redux"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebook, faGoogle } from "@fortawesome/free-brands-svg-icons";
 import { faCheck, faX } from "@fortawesome/free-solid-svg-icons";
-import { togglePage } from "../features/SinUpSlice";
+import { togglePage, toggleSinup } from "../features/SinUpSlice";
 import { useState, useRef } from "react";
 import  "../features/Authentication";
 import { Authentication } from "../features/Authentication";
@@ -10,14 +10,16 @@ import { createUserWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { auth, googleProvider } from "../features/firebaseConfig";
 
 const SinUp = () => {
+    const dispatch = useDispatch();
+    const { sinup, sinin } = useSelector((state) => state.sinUp);
     const { isLoggedIn } = useSelector((state) => state.sinUp);
     const [email, setemail] = useState("");
     const [password, setPassword] = useState("");
-    const [errMessage, setErrMessage] = useState("");
+    const [errMessage, setErrMessage] = useState(false);
     const [passwordCorrect, setPasswordCorrect] = useState(false);
     const passBox = useRef();
     const errorHandle = useRef();
-    errorHandle.current.innerHTML = errMessage;
+    
     const passChecker = (e) => {
         passBox.current.style.opacity = 1;
         if (password === e.target.value) {
@@ -35,6 +37,7 @@ const SinUp = () => {
             const errorMessage = error.message;
             const regex = /(?<=auth\/)(.*?)(?=\))/;
             const match = errorMessage.match(regex);
+            errorHandle.current.innerHTML = errMessage;
             console.log(match[0]);
             setErrMessage(match[0]);
         }
@@ -45,14 +48,13 @@ const SinUp = () => {
     }
     const submiting = async (e) => {
         e.preventDefault();
+        console.log(auth?.currentUser?.uid);
         if (passwordCorrect === true) {
             siningUp();
         }
     }
 
 
-    const { sinup, sinin } = useSelector((state) => state.sinUp);
-    const dispatch = useDispatch();
 
   return (
       <div className='absolute w-screen h-screen bg-gray-500 bg-opacity-50 z-40 -mt-5 container flex justify-center items-center'>
@@ -80,9 +82,14 @@ const SinUp = () => {
                   </div>
 
                 <p ref={errorHandle} className="text-red-600 text-sm"></p>
-                {sinup && <button className="mt-2 mb-2 px-6 py-2 bg-blue-600 rounded-xl text-white hover:bg-blue-700 " type="submit">Submit</button>}
+                  <button className="mt-2 mb-2 px-6 py-2 bg-blue-600 rounded-xl text-white hover:bg-blue-700 " type="submit">{sinup && 'Sign Up'}{sinin && 'Log In'}</button>
               </form>
-              {sinup && <button className="text-xs">Aready have an account?</button>}
+              {sinup && <button className="text-xs" onClick={() => {
+                  dispatch(toggleSinup());
+              }}>Aready have an account?</button>}
+              {sinin && <button className="text-xs" onClick={() => {
+                  dispatch(toggleSinup());
+              }}>Dont have an account?</button>}
 
               <div className="pt-4">
                   <FontAwesomeIcon icon={faGoogle} className="h-6 px-3 hover:cursor-pointer" onClick={signUpWithGoogle}></FontAwesomeIcon>
