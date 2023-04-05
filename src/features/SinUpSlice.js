@@ -1,9 +1,11 @@
+import { faL } from "@fortawesome/free-solid-svg-icons";
 import { createSlice } from "@reduxjs/toolkit";
 
 const init = {
     SinUPIsShowing: true,
     sinup: true,
     sinin: false,
+    isLoggedIn: false,
 }
 
 const sinup = createSlice({
@@ -16,9 +18,15 @@ const sinup = createSlice({
         toggleSinup: (state) => {
             state.sinup = !state.sinup;
             state.sinin = !state.sinin;
+        },
+        toggleLoggedTrue: (state) => {
+            state.isLoggedIn = true;
+        },
+        toggleLoggedFalse: (state) => {
+            state.isLoggedIn = false;
         }
     }
 })
 
 export default sinup.reducer;
-export const {togglePage, toggleSinup} = sinup.actions
+export const {togglePage, toggleSinup, toggleLoggedTrue, toggleLoggedFalse} = sinup.actions

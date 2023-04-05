@@ -3,15 +3,27 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebook, faGoogle } from "@fortawesome/free-brands-svg-icons";
 import { faX } from "@fortawesome/free-solid-svg-icons";
 import { togglePage } from "../features/SinUpSlice";
-import { useState } from "react";
+import { useState, useRef } from "react";
+import  "../features/Authentication";
+import { Authentication } from "../features/Authentication";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 
 const SinUp = () => {
-
+    const { isLoggedIn } = useSelector((state) => state.sinUp);
     const [email, setemail] = useState("");
     const [password, setPassword] = useState("");
+    const passBox = useRef();
+    const passChecker = (e) => {
+        passBox.current.style.border = '1px solid red';
+        // if (password != e.target.value) {
+        // }
+    }
 
     const submiting = (e) => {
         e.preventDefault();
+        <Authentication/>
+        console.log(isLoggedIn);
+
     }
 
 
@@ -24,16 +36,18 @@ const SinUp = () => {
               <FontAwesomeIcon icon={faX} className='absolute right-4 h-3  hover:text-red-600' onClick={() => {
                   dispatch(togglePage());
               }}></FontAwesomeIcon>
-              {sinup && <h4>Sin Up</h4> }
+              {sinup && <h4>Sin Up</h4>}
               {sinin && <h4>Sin In</h4>}
               <form action="" className="flex flex-col items-center w-full" onSubmit={submiting}>
                   <input type="text" placeholder="Email" className="bg-white border-solid border-2 border-gray-400 rounded-lg px-2 h-8 w-4/5 text-sm mb-3" value={email} onChange={(e) => {
                       setemail(e.target.value);
                   } } />
                 
-                <input type="password" placeholder="Password" className=" bg-white border-solid border-2 border-gray-400 rounded-lg px-2 h-8 w-4/5 text-sm mb-3"/>
+                  <input type="password" placeholder="Password" className=" bg-white border-solid border-2 border-gray-400 rounded-lg px-2 h-8 w-4/5 text-sm mb-3" value={password} onChange={(e) => {
+                      setPassword(e.target.value);
+                  } } />
 
-                {sinup && <input type="password" placeholder="Confirm Password" className=" bg-white border-solid border-2 border-gray-400 rounded-lg px-2 h-8 w-4/5 text-sm mb-3" />}
+                {sinup && <input type="password" placeholder="Confirm Password" className=" bg-white border-solid border-2 border-gray-400 rounded-lg px-2 h-8 w-4/5 text-sm mb-3" onFocus={passChecker} ref={passBox} />}
                 
                 {sinup && <button className="mt-2 mb-2 px-6 py-2 bg-blue-600 rounded-xl text-white hover:bg-blue-700 " type="submit">Submit</button>}
               </form>
