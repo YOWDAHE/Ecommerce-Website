@@ -36,9 +36,9 @@ function App() {
 
   return (
     <div className="app">
-      <div className="bg-green-500 h-8 w-8 flex items-center justify-center text-white rounded-full fixed right-4 bottom-4 md:top-6 md:right-60">
+      {isShowing  && <div className="bg-green-500 h-8 w-8 flex items-center justify-center text-white rounded-full fixed right-4 bottom-40 md:right-20 md:bottom-14">
         <FontAwesomeIcon icon={faPlus}></FontAwesomeIcon>
-      </div>
+      </div>}
       {SinUPIsShowing && <SinUp/>}
       {isShowing && <Navbar />}
       {!isShowing && <Cart />}

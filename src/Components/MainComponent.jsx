@@ -4,11 +4,10 @@ import ItemCountainer from "./ItemContainer";
 
 const MainComp = () => {
     const { cartItems } = useSelector((state) => state.cart);
-    const { isShowing } = useSelector((state) => state.cartShow);
 
     // const thing = JSON.stringify(cartItems)
     return (
-        <div className="flex flex-wrap pt-5 justify-center md:p-20 overflow-hidden">
+        <div className="flex flex-wrap pt-5 justify-center md:p-20">
             {cartItems.map((item) => {
                 return <ItemCountainer key={item.id} {...item} />
             })}

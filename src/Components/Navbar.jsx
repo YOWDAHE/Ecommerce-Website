@@ -50,7 +50,9 @@ const Navbar = () => {
                 <div className="text-xs h-6 mx-2 md:mx-5 px-3 md:text-sm bg-gray-700 text-white rounded-full flex items-center hover:cursor-pointer hover:bg-gray-800 hover:px-5 transition-all">
                     Your Items
                 </div>
-                <div className="text-xs h-6 mx-2 md:mx-5 px-3 md:text-sm bg-gray-700 text-white rounded-full flex items-center hover:cursor-pointer hover:bg-gray-800 hover:px-5 transition-all">
+                <div className="text-xs h-6 mx-2 md:mx-5 px-3 md:text-sm bg-gray-700 text-white rounded-full flex items-center hover:cursor-pointer hover:bg-gray-800 hover:px-5 transition-all" onClick={() => {
+                    dispatch(toggle());
+                }}>
                     Cart items
                 </div>
             </div>}

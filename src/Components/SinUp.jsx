@@ -38,6 +38,7 @@ const SinUp = () => {
             errorHandle.current.innerHTML = errMessage;
             setErrMessage(match[0]);
         }
+        dispatch(togglePage());
     }
     const siningUp = async () => {
         console.log("hi")
