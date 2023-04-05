@@ -13,8 +13,11 @@ const SinUp = () => {
     const { isLoggedIn } = useSelector((state) => state.sinUp);
     const [email, setemail] = useState("");
     const [password, setPassword] = useState("");
+    const [errMessage, setErrMessage] = useState("");
     const [passwordCorrect, setPasswordCorrect] = useState(false);
     const passBox = useRef();
+    const errorHandle = useRef();
+    errorHandle.current.innerHTML = errMessage;
     const passChecker = (e) => {
         passBox.current.style.opacity = 1;
         if (password === e.target.value) {
@@ -23,17 +26,25 @@ const SinUp = () => {
             setPasswordCorrect(false);
         }
     }
-
     const siningUp = async () => {
-        await createUserWithEmailAndPassword(auth, email, password);
+        console.log("hi")
+        try {
+            await createUserWithEmailAndPassword(auth, email, password);
+        }
+        catch (error) {
+            const errorMessage = error.message;
+            const regex = /(?<=auth\/)(.*?)(?=\))/;
+            const match = errorMessage.match(regex);
+            console.log(match[0]);
+            setErrMessage(match[0]);
+        }
     }
-    const submiting = (e) => {
+    const submiting = async (e) => {
         e.preventDefault();
-        <Authentication />
-        if (passChecker == true) {
+        if (passwordCorrect === true) {
             siningUp();
         }
-        console.log(isLoggedIn);
+        console.log(">>>>>> ",isLoggedIn);
 
     }
 
@@ -43,12 +54,12 @@ const SinUp = () => {
 
   return (
       <div className='absolute w-screen h-screen bg-gray-500 bg-opacity-50 z-40 -mt-5 container flex justify-center items-center'>
-          <div className="bg-white h-80 w-72 rounded-3xl flex flex-col items-center p-4 relative">
+          <div className="bg-white  w-72 rounded-3xl flex flex-col items-center p-4 relative">
               <FontAwesomeIcon icon={faX} className='absolute right-4 h-3  hover:text-red-600' onClick={() => {
                   dispatch(togglePage());
               }}></FontAwesomeIcon>
-              {sinup && <h4>Sin Up</h4>}
-              {sinin && <h4>Sin In</h4>}
+              {sinup && <h4>Sign Up</h4>}
+              {sinin && <h4>Sign In</h4>}
               <form action="" className="flex flex-col items-center w-full relative" onSubmit={submiting}>
                   <input type="text" placeholder="Email" className="bg-white border-solid border-2 border-gray-400 rounded-lg px-2 h-8 w-4/5 text-sm mb-3" value={email} onChange={(e) => {
                       setemail(e.target.value);
@@ -66,6 +77,7 @@ const SinUp = () => {
                       {!passwordCorrect && <FontAwesomeIcon icon={faX} className="text-red-700"></FontAwesomeIcon>}
                   </div>
 
+                <p ref={errorHandle} className="text-red-600 text-sm"></p>
                 {sinup && <button className="mt-2 mb-2 px-6 py-2 bg-blue-600 rounded-xl text-white hover:bg-blue-700 " type="submit">Submit</button>}
               </form>
               {sinup && <button className="text-xs">Aready have an account?</button>}
