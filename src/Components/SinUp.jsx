@@ -6,8 +6,8 @@ import { togglePage } from "../features/SinUpSlice";
 import { useState, useRef } from "react";
 import  "../features/Authentication";
 import { Authentication } from "../features/Authentication";
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../features/firebaseConfig";
+import { createUserWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import { auth, googleProvider } from "../features/firebaseConfig";
 
 const SinUp = () => {
     const { isLoggedIn } = useSelector((state) => state.sinUp);
@@ -39,13 +39,15 @@ const SinUp = () => {
             setErrMessage(match[0]);
         }
     }
+
+    const signUpWithGoogle = async () => {
+        await signInWithPopup(auth, googleProvider);
+    }
     const submiting = async (e) => {
         e.preventDefault();
         if (passwordCorrect === true) {
             siningUp();
         }
-        console.log(">>>>>> ",isLoggedIn);
-
     }
 
 
@@ -83,7 +85,7 @@ const SinUp = () => {
               {sinup && <button className="text-xs">Aready have an account?</button>}
 
               <div className="pt-4">
-                  <FontAwesomeIcon icon={faGoogle} className="h-6 px-3 hover:cursor-pointer"></FontAwesomeIcon>
+                  <FontAwesomeIcon icon={faGoogle} className="h-6 px-3 hover:cursor-pointer" onClick={signUpWithGoogle}></FontAwesomeIcon>
                   <FontAwesomeIcon icon={faFacebook} className="h-6 hover:cursor-pointer"></FontAwesomeIcon>
               </div>
               
