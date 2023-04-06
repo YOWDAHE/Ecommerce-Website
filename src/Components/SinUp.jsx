@@ -50,7 +50,7 @@ const SinUp = () => {
             const regex = /(?<=auth\/)(.*?)(?=\))/;
             const match = errorMessage.match(regex);
             errorHandle.current.innerHTML = errMessage;
-            console.log(match[0]);
+            console.log(error);
             setErrMessage(match[0]);
         }
     }

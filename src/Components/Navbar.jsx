@@ -20,17 +20,22 @@ const Navbar = () => {
     const [dropdown, setDropDown] = useState('');
     const { amount, renderable, cartItems } = useSelector((state) => state.cart)
     const { isLoggedIn } = useSelector((state) => state.sinUp);
-    const [filtteredList, setFiltteredList] = useState(null);
+    const [filtteredList, setFiltteredList] = useState([]);
 
 
     const selectChange = (event) => {
         setDropDown(event.target.value);
-        changeState();
+        changeState(event);
     }
-    const changeState = () => {
-        setFiltteredList(cartItems.filter(item => item.type == dropdown)
-        )
-        dispatch(setRender(filtteredList));
+    const changeState = (event) => {
+        console.log('event.target.value', event.target.value)
+        if (event.target.value == 'All') {
+            dispatch(setRender(cartItems));
+        } else {
+            setFiltteredList(cartItems.filter(item => item.type == dropdown)
+            )
+            dispatch(setRender(filtteredList));
+        }
     }
     
     console.log('filtteredList', filtteredList)    
@@ -71,7 +76,7 @@ const Navbar = () => {
                 }}>
                     Cart items
                 </div>
-                <select name="Fliter" className=" text-xs h-6 mx-2 md:mx-5 px-3 md:text-sm bg-gray-700 text-white rounded-full flex items-center hover:cursor-pointer hover:bg-gray-800 hover:px-5 transition-all"  onClick={selectChange}>
+                <select name="Fliter" className=" text-xs h-6 mx-2 md:mx-5 px-3 md:text-sm bg-gray-700 text-white rounded-full flex items-center hover:cursor-pointer hover:bg-gray-800 hover:px-5 transition-all"  onBlur={selectChange}>
                     <option value="All" >All</option>
                     <option value="Phone" className="bg-gray-700">Phone</option>
                     <option value="Laptop" className="bg-gray-700">Laptop</option>

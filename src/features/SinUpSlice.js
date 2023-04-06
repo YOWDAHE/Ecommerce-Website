@@ -10,7 +10,7 @@ const init = {
 
 const sinup = createSlice({
     name :'sinUp',
-    initialState: init,
+    initialState: init, 
     reducers: {
         togglePage: (state) => {
             state.SinUPIsShowing = !state.SinUPIsShowing;
