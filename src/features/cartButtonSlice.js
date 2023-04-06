@@ -11,7 +11,6 @@ const CartShowing = createSlice({
     reducers: {
         toggle: (state) => {
             state.isShowing = !state.isShowing;
-            console.log(state.isShowing);
         }
     }
 })

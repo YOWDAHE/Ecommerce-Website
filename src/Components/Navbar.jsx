@@ -55,6 +55,11 @@ const Navbar = () => {
                 }}>
                     Cart items
                 </div>
+                <div className="text-xs h-6 mx-2 md:mx-5 px-3 md:text-sm bg-gray-700 text-white rounded-full flex items-center hover:cursor-pointer hover:bg-gray-800 hover:px-5 transition-all">
+                    <select name="Fliter" className="bg-transparent">
+                        <option value="Fliter by" >Filter</option>
+                    </select>
+                </div>
             </div>}
         </div>
     )
