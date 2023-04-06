@@ -5,6 +5,7 @@ const cartItems = [
     price: '399.99',
     img: 'https://images2.imgbox.com/c2/14/zedmXgs6_o.png',
     amount: 0,
+    type: 'phone',
     inCart: false,
   },
   {
@@ -13,6 +14,7 @@ const cartItems = [
     price: '499.99',
     img: 'https://images2.imgbox.com/fb/3d/O4TPmhlt_o.png',
     amount: 0,
+    type: 'phone',
     inCart: false,
   },
   {
@@ -21,6 +23,7 @@ const cartItems = [
     price: '699.99',
     img: 'https://images2.imgbox.com/4f/3d/WN3GvciF_o.png',
     amount: 0,
+    type: 'Phone',
     inCart: false,
   },
   {
@@ -29,6 +32,7 @@ const cartItems = [
     price: '599.99 ',
     img: 'https://images2.imgbox.com/2e/7c/yFsJ4Zkb_o.png',
     amount: 0,
+    type: 'phone',
     inCart: false,
   },
 ];

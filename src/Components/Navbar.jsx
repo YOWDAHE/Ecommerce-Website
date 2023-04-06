@@ -5,6 +5,7 @@ import { useState } from "react";
 import { auth } from "../features/firebaseConfig";
 import { signOut } from "firebase/auth";
 import { togglePage } from "../features/SinUpSlice";
+import { setRender } from "../features/cartSlice";
 const Navbar = () => {
 
     const sinOut = async () => {
@@ -14,10 +15,25 @@ const Navbar = () => {
         dispatch(togglePage());
     }
 
-    const [userOption, setUserOption] = useState(true);
     const dispatch = useDispatch();
-    const { amount } = useSelector((state) => state.cart)
+    const [userOption, setUserOption] = useState(true);
+    const [dropdown, setDropDown] = useState('');
+    const { amount, renderable, cartItems } = useSelector((state) => state.cart)
     const { isLoggedIn } = useSelector((state) => state.sinUp);
+    const [filtteredList, setFiltteredList] = useState(null);
+
+
+    const selectChange = (event) => {
+        setDropDown(event.target.value);
+        changeState();
+    }
+    const changeState = () => {
+        setFiltteredList(cartItems.filter(item => item.type == dropdown)
+        )
+        dispatch(setRender(filtteredList));
+    }
+    
+    console.log('filtteredList', filtteredList)    
 
     return (
         <div>
@@ -55,11 +71,11 @@ const Navbar = () => {
                 }}>
                     Cart items
                 </div>
-                <div className="text-xs h-6 mx-2 md:mx-5 px-3 md:text-sm bg-gray-700 text-white rounded-full flex items-center hover:cursor-pointer hover:bg-gray-800 hover:px-5 transition-all">
-                    <select name="Fliter" className="bg-transparent">
-                        <option value="Fliter by" >Filter</option>
-                    </select>
-                </div>
+                <select name="Fliter" className=" text-xs h-6 mx-2 md:mx-5 px-3 md:text-sm bg-gray-700 text-white rounded-full flex items-center hover:cursor-pointer hover:bg-gray-800 hover:px-5 transition-all"  onClick={selectChange}>
+                    <option value="All" >All</option>
+                    <option value="Phone" className="bg-gray-700">Phone</option>
+                    <option value="Laptop" className="bg-gray-700">Laptop</option>
+                </select>
             </div>}
         </div>
     )
