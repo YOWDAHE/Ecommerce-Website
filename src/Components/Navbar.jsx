@@ -38,7 +38,7 @@ const Navbar = () => {
         }
     }
     
-    console.log('filtteredList', filtteredList)    
+    // console.log('filtteredList', filtteredList)    
 
     return (
         <div>

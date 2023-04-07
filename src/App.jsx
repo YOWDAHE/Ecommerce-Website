@@ -2,7 +2,7 @@ import Navbar from "./Components/Navbar";
 import { useSelector, useDispatch } from "react-redux";
 import Cart from "./Components/Cart";
 import MainComp from "./Components/MainComponent";
-import { calculateTotals } from "./features/cartSlice";
+import { calculateTotals, setCart } from "./features/cartSlice";
 import { useEffect, useState } from "react";
 import SinUp from "./Components/SinUp";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -11,6 +11,9 @@ import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./features/firebaseConfig";
 import { toggleLoggedFalse, toggleLoggedTrue } from "./features/SinUpSlice";
 import Addpage from "./Components/Addpage";
+
+import { collection, getDocs, doc } from 'firebase/firestore';
+import { db } from "./features/firebaseConfig";
 
 
 
@@ -21,7 +24,29 @@ function App() {
   const { isShowing } = useSelector((state) => state.cartShow);
   const { cartItems } = useSelector((state) => state.cart);
   const { SinUPIsShowing } = useSelector((state) => state.sinUp);
-  const [addPage, setAddPage] = useState(true);
+  const [addPage, setAddPage] = useState(false);
+
+  const UserCollection = collection(db, "items");
+  const [items, setItems] = useState([]);
+
+  useEffect(() => {
+    const getUser = async () => {
+      const data = await getDocs(UserCollection);
+      setItems(data.docs.map((docs) => ({ ...docs.data(), id: docs.id })));
+      if (items != []){
+        setItem();
+      }
+    }
+    
+    getUser();
+  }, [])
+  console.log('items', items);
+  
+  const setItem = () => {
+    dispatch(setCart(items));
+  }
+
+  
 
   useEffect(() => {
     dispatch(calculateTotals());
