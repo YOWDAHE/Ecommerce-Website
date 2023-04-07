@@ -10,6 +10,7 @@ const MainComp = () => {
     useEffect(() => {
         dispatch(setRender(cartItems))
     }, [cartItems])
+    
     const { renderable } = useSelector((state) => state.cart);
 
     return (

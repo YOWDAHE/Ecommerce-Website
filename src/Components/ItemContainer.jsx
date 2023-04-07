@@ -1,9 +1,11 @@
 import { useSelector, useDispatch } from "react-redux";
 import { addAmount, addToCart } from "../features/cartSlice";
+import { auth } from "../features/firebaseConfig";
 
 
-const ItemCountainer = ({ id, title, price, img, inCart }) => {
+const ItemCountainer = ({ id, title, price, img, inCart, userId }) => {
     const { amount } = useSelector((state) => state.cart);
+    const userChecker = auth?.currentUser?.uid == userId ? true : false;
     const dispatch = useDispatch();
     const addingToCart = (id) => {
         dispatch(addAmount(id));
@@ -24,9 +26,14 @@ const ItemCountainer = ({ id, title, price, img, inCart }) => {
                 <button className="bg-yellow-500 hover:bg-yellow-400 h-full w-full flex items-center justify-center">
                     Purchase
                 </button>
-                <button className="bg-blue-600 hover:bg-blue-500 h-full w-full flex items-center justify-center" onClick={() => { addingToCart(id);}}>
+
+                { !userChecker && <button className="bg-blue-600 hover:bg-blue-500 h-full w-full flex items-center justify-center" onClick={() => { addingToCart(id);}}>
                     Add to cart
-                </button>
+                </button>}
+
+                {userChecker && <button className="bg-red-700 text-white hover:bg-red-500 h-full w-full flex items-center justify-center">
+                    Remove Item
+                </button>}
             </div>
         </div>
     )

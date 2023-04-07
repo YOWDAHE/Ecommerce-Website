@@ -1,11 +1,12 @@
 import {CartIcon, UserIcon} from "../icon";
 import { toggle } from "../features/cartButtonSlice";
 import { useSelector, useDispatch } from "react-redux";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { auth } from "../features/firebaseConfig";
 import { signOut } from "firebase/auth";
-import { togglePage } from "../features/SinUpSlice";
+import { togglePage, AddPageOff } from "../features/SinUpSlice";
 import { setRender } from "../features/cartSlice";
+
 const Navbar = () => {
 
     const sinOut = async () => {
@@ -19,16 +20,26 @@ const Navbar = () => {
     const [userOption, setUserOption] = useState(true);
     const [dropdown, setDropDown] = useState('');
     const { amount, renderable, cartItems } = useSelector((state) => state.cart)
-    const { isLoggedIn } = useSelector((state) => state.sinUp);
+    const { isLoggedIn, addPage } = useSelector((state) => state.sinUp);
     const [filtteredList, setFiltteredList] = useState([]);
 
+    const [useritems, setuseritmes] = useState(null);
+    // useEffect(() => {
+    //     setuseritmes(cartItems.filter(item => item.userId == auth?.currentUser?.uid))
+    // },[cartItems])
+
+    const userItems = () => {
+        console.log(auth?.currentUser?.uid, "<<<<<<<<< id");
+        setFiltteredList(cartItems.filter(item => item.userId == auth?.currentUser?.uid)
+        );
+        dispatch(setRender(filtteredList));
+    }
 
     const selectChange = (event) => {
         setDropDown(event.target.value);
         changeState(event);
     }
     const changeState = (event) => {
-        console.log('event.target.value', event.target.value)
         if (event.target.value == 'All') {
             dispatch(setRender(cartItems));
         } else {
@@ -50,6 +61,7 @@ const Navbar = () => {
                 <div className="flex">
                     <div className="pr-3 relative hover:cursor-pointer text-blue-700" onClick={() => {
                         dispatch(toggle());
+                        dispatch(AddPageOff());
                     }}>
                         <div className="absolute bg-gray-500 bg rounded-full w-6 text-center text-sm right-1 top-0 bg-opacity-80 text-white">{amount}</div>
                         <CartIcon/>
@@ -68,7 +80,7 @@ const Navbar = () => {
                     {isLoggedIn && 'Log Out'}
                     {!isLoggedIn && 'Sign In'}
                 </div>
-                <div className="text-xs h-6 mx-2 md:mx-5 px-3 md:text-sm bg-gray-700 text-white rounded-full flex items-center hover:cursor-pointer hover:bg-gray-800 hover:px-5 transition-all">
+                <div className="text-xs h-6 mx-2 md:mx-5 px-3 md:text-sm bg-gray-700 text-white rounded-full flex items-center hover:cursor-pointer hover:bg-gray-800 hover:px-5 transition-all" onClick={userItems}>
                     Your Items
                 </div>
                 <div className="text-xs h-6 mx-2 md:mx-5 px-3 md:text-sm bg-gray-700 text-white rounded-full flex items-center hover:cursor-pointer hover:bg-gray-800 hover:px-5 transition-all" onClick={() => {
@@ -78,8 +90,8 @@ const Navbar = () => {
                 </div>
                 <select name="Fliter" className=" text-xs h-6 mx-2 md:mx-5 px-3 md:text-sm bg-gray-700 text-white rounded-full flex items-center hover:cursor-pointer hover:bg-gray-800 hover:px-5 transition-all"  onBlur={selectChange}>
                     <option value="All" >All</option>
-                    <option value="Phone" className="bg-gray-700">Phone</option>
-                    <option value="Laptop" className="bg-gray-700">Laptop</option>
+                    <option value="Phone" className="bg-gray-700">phone</option>
+                    <option value="Laptop" className="bg-gray-700">laptop</option>
                 </select>
             </div>}
         </div>

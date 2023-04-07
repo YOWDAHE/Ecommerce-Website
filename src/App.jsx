@@ -9,7 +9,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./features/firebaseConfig";
-import { toggleLoggedFalse, toggleLoggedTrue } from "./features/SinUpSlice";
+import { toggleLoggedFalse, toggleLoggedTrue, AddPageOff, AddPageOn} from "./features/SinUpSlice";
 import Addpage from "./Components/Addpage";
 
 import { collection, getDocs, doc } from 'firebase/firestore';
@@ -20,31 +20,35 @@ import { db } from "./features/firebaseConfig";
 function App() {
 
   const dispatch = useDispatch();
-  const { isLoggedIn } = useSelector((state) => state.sinUp);
+  const { isLoggedIn, addPage } = useSelector((state) => state.sinUp);
   const { isShowing } = useSelector((state) => state.cartShow);
   const { cartItems } = useSelector((state) => state.cart);
   const { SinUPIsShowing } = useSelector((state) => state.sinUp);
-  const [addPage, setAddPage] = useState(false);
+  // const [addPage, setAddPage] = useState(false);
 
-  const UserCollection = collection(db, "items");
   const [items, setItems] = useState([]);
 
   useEffect(() => {
     const getUser = async () => {
+      const UserCollection = collection(db, "items");
+
       const data = await getDocs(UserCollection);
-      setItems(data.docs.map((docs) => ({ ...docs.data(), id: docs.id })));
-      if (items != []){
-        setItem();
-      }
+      console.log(data.docs, "firebase data");
+      const res = data.docs.map((docs) => ({ ...docs.data(), id: docs.id }));
+      setItems(res);
+      setItem(res);
     }
-    
     getUser();
+    console.log("new data", items);
+  
   }, [])
+
   console.log('items', items);
   
-  const setItem = () => {
-    dispatch(setCart(items));
+  const setItem = (it) => {
+    dispatch(setCart(it));
   }
+
 
   
 
@@ -64,11 +68,11 @@ function App() {
 
   return (
     <div className="app flex flex-col relative">
-      {isShowing  && <div className="bg-green-500 h-8 w-8 flex items-center justify-center text-white rounded-full fixed right-4 bottom-6 md:right-20 md:bottom-14">
-        <FontAwesomeIcon icon={faPlus} onClick={() => {
-          setAddPage(prev => !prev);
-          console.log('addPage', addPage)
-        }}></FontAwesomeIcon>
+      {isShowing && <div className="bg-green-500 h-8 w-8 flex items-center justify-center text-white rounded-full fixed right-4 bottom-6 md:right-20 md:bottom-14" onClick={() => {
+        dispatch(AddPageOn());
+        console.log('addPage', addPage)
+      }}>
+        <FontAwesomeIcon icon={faPlus} ></FontAwesomeIcon>
       </div>}
       {SinUPIsShowing && <SinUp/>}
       {isShowing && <Navbar />}
