@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { CartArr, emptyAmount } from "../features/cartSlice";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft} from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
 
 const Cart = () => {
@@ -35,9 +36,11 @@ const Cart = () => {
                 <div className="mt-4 text-lg">
                     Cart is Empty
                 </div>
-                <button className="mt-10 p-5 py-3 bg-blue-600 rounded-xl text-white hover:bg-blue-700 " onClick={() => {
-                    dispatch(toggle())
-                }}>Continue Shoping</button>
+                <Link to="/">
+                    <button className="mt-10 p-5 py-3 bg-blue-600 rounded-xl text-white hover:bg-blue-700 " onClick={() => {
+                        // dispatch(toggle())
+                    }}>Continue Shoping</button>
+                </Link>
             </div>
         )
     }
@@ -51,7 +54,7 @@ const Cart = () => {
                       dispatch(toggle());
                   }}></FontAwesomeIcon>
               </div>
-              <div className="text-red-700 hover:cursor-pointer flex items-center">
+              <div className="text-red-700 hover:cursor-pointer flex items-center text-xs md:text-sm">
                   {!clrCart && <div onClick={() => {
                       setClrCart(true);
                   }}>Clear cart</div> }

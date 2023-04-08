@@ -6,6 +6,7 @@ import { auth } from "../features/firebaseConfig";
 import { signOut } from "firebase/auth";
 import { togglePage, AddPageOff } from "../features/SinUpSlice";
 import { setRender } from "../features/cartSlice";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
 
@@ -60,11 +61,13 @@ const Navbar = () => {
                 </div>
                 <div className="flex">
                     <div className="pr-3 relative hover:cursor-pointer text-blue-700" onClick={() => {
-                        dispatch(toggle());
-                        dispatch(AddPageOff());
+                        // dispatch(toggle());
+                        // dispatch(AddPageOff());
                     }}>
-                        <div className="absolute bg-gray-500 bg rounded-full w-6 text-center text-sm right-1 top-0 bg-opacity-80 text-white">{amount}</div>
-                        <CartIcon/>
+                        <Link to="/cart">
+                            <div className="absolute bg-gray-500 bg rounded-full w-6 text-center text-sm right-1 top-0 bg-opacity-80 text-white">{amount}</div>
+                            <CartIcon />
+                        </Link>
                     </div>
                     <div onClick={()=> setUserOption(prevState => !prevState)}>
                         <UserIcon/>
@@ -72,30 +75,29 @@ const Navbar = () => {
                 </div>
             </div>
             {userOption && <div className=" h-10 w-11/12 flex items-center justify-center ml-auto mr-auto lg:justify-end md:w-3/5 ">
-                <div className="text-xs h-6 mx-2 md:mx-5 px-3 md:text-sm bg-gray-700 text-white rounded-full flex items-center hover:cursor-pointer hover:bg-gray-800 hover:px-5 transition-all" onClick={() => {
-                    { isLoggedIn && sinOut(); }
+                <div className="text-xs h-6 mx-1 md:mx-5 px-3 md:text-sm bg-gray-700 text-white rounded-full flex items-center hover:cursor-pointer hover:bg-gray-800 hover:px-3 md:hover:px-5 md:hover:mx-3 transition-all" onClick={() => {
                     { !isLoggedIn && sinin(); }
 
                 }}>
                     {isLoggedIn && 'Log Out'}
                     {!isLoggedIn && 'Sign In'}
                 </div>
-                <div className="text-xs h-6 mx-2 md:mx-5 px-3 md:text-sm bg-gray-700 text-white rounded-full flex items-center hover:cursor-pointer hover:bg-gray-800 hover:px-5 transition-all" onClick={userItems}>
+                <div className="text-xs h-6 mx-1 md:mx-5 px-3 md:text-sm bg-gray-700 text-white rounded-full flex items-center hover:cursor-pointer hover:bg-gray-800 hover:px-3 md:hover:px-5 md:hover:mx-3 transition-all" onClick={userItems}>
                     Your Items
                 </div>
-                <div className="text-xs h-6 mx-2 md:mx-5 px-3 md:text-sm bg-gray-700 text-white rounded-full flex items-center hover:cursor-pointer hover:bg-gray-800 hover:px-5 transition-all" onClick={() => {
+                <div className="text-xs h-6 mx-1 md:mx-5 px-3 md:text-sm bg-gray-700 text-white rounded-full flex items-center hover:cursor-pointer hover:bg-gray-800 hover:px-3 md:hover:px-5 md:hover:mx-3 transition-all" onClick={() => {
                     dispatch(toggle());
                 }}>
                     Cart items
                 </div>
-                <select name="Fliter" className=" text-xs h-6 mx-2 md:mx-5 px-3 md:text-sm bg-gray-700 text-white rounded-full flex items-center hover:cursor-pointer hover:bg-gray-800 hover:px-5 transition-all"  onBlur={selectChange}>
+                <select name="Fliter" className=" text-xs h-6 mx-1 md:mx-5 px-3 md:text-sm bg-gray-700 text-white rounded-full flex items-center hover:cursor-pointer hover:bg-gray-800 hover:px-1 md:hover:px-5 transition-all"  onBlur={selectChange}>
                     <option value="All" >All</option>
-                    <option value="Phone" className="bg-gray-700">phone</option>
-                    <option value="Laptop" className="bg-gray-700">laptop</option>
+                    <option value="phone" className="bg-gray-700">phone</option>
+                    <option value="laptop" className="bg-gray-700">laptop</option>
                 </select>
             </div>}
         </div>
-    )
+    )   
 }
 
 export default Navbar;
