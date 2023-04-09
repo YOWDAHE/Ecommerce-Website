@@ -21,7 +21,6 @@ const sinup = createSlice({
         },
         togglePage: (state) => {
             state.SinUPIsShowing = !state.SinUPIsShowing;
-            console.log("toddled>>>>>>", state.SinUPIsShowing)
         },
         toggleSinup: (state) => {
             state.sinup = !state.sinup;

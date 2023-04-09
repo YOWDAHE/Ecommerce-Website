@@ -1,7 +1,5 @@
 import { CartIconLarg } from "../icon"
 import { useSelector, useDispatch } from "react-redux"
-import { toggle } from "../features/cartButtonSlice";
-import ItemCountainer from "./ItemContainer";
 import CartItemContainer from "./CartItemContainer";
 import { useEffect, useState } from "react";
 import { CartArr, emptyAmount } from "../features/cartSlice";
@@ -12,7 +10,6 @@ import { Link } from "react-router-dom";
 
 const Cart = () => {
     const dispatch = useDispatch();
-    const { isShowing } = useSelector((state) => state.cartShow);
     const { insideCart } = useSelector((state) => state.cart)
     const { amount, cartItems } = useSelector((state) => state.cart);
     const [clrCart, setClrCart] = useState(false);
@@ -47,13 +44,11 @@ const Cart = () => {
 
 
   return (
-    <div>
+    <div className="flex flex-col">
         <div className="bg-gray-100 h-10 w-fill flex px-4 items-center justify-between ">
-              <div>
-                  <FontAwesomeIcon icon={faArrowLeft} onClick={() => {
-                      dispatch(toggle());
-                  }}></FontAwesomeIcon>
-              </div>
+              <Link to="/">
+                  <FontAwesomeIcon icon={faArrowLeft}></FontAwesomeIcon>
+              </Link>
               <div className="text-red-700 hover:cursor-pointer flex items-center text-xs md:text-sm">
                   {!clrCart && <div onClick={() => {
                       setClrCart(true);

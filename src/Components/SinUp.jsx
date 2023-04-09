@@ -108,7 +108,6 @@ const SinUp = () => {
 
               <div className="pt-4">
                   <FontAwesomeIcon icon={faGoogle} className="h-6 px-3 hover:cursor-pointer" onClick={signUpWithGoogle}></FontAwesomeIcon>
-                  <FontAwesomeIcon icon={faFacebook} className="h-6 hover:cursor-pointer"></FontAwesomeIcon>
               </div>
               
           </div>

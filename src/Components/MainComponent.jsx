@@ -18,6 +18,7 @@ const MainComp = () => {
     const { renderable } = useSelector((state) => state.cart);
     const { isLoggedIn } = useSelector((state) => state.sinUp);
 
+
     return (
         <>
             <Navbar/>

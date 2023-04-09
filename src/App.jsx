@@ -20,10 +20,8 @@ function App() {
 
   const dispatch = useDispatch();
   const { isLoggedIn, addPage } = useSelector((state) => state.sinUp);
-  const { isShowing } = useSelector((state) => state.cartShow);
   const { cartItems } = useSelector((state) => state.cart);
   const { SinUPIsShowing } = useSelector((state) => state.sinUp);
-  // const [addPage, setAddPage] = useState(false);
 
   const [items, setItems] = useState([]);
 
@@ -32,18 +30,13 @@ function App() {
       const UserCollection = collection(db, "items");
 
       const data = await getDocs(UserCollection);
-      console.log(data.docs, "firebase data");
       const res = data.docs.map((docs) => ({ ...docs.data(), id: docs.id }));
-      setItems(res);
       setItem(res);
     }
     getUser();
-    console.log("new data", items);
   
   }, [])
 
-  console.log('items', items);
-  
   const setItem = (it) => {
     dispatch(setCart(it));
   }
@@ -64,7 +57,6 @@ function App() {
     })
   })
 
-  console.log('SinUPIsShowing', SinUPIsShowing);
 
   return (
     <>
@@ -76,19 +68,6 @@ function App() {
         <Route path="*" element={ <Navigate to="/" /> } />
       </Routes>
 
-      {/* <div className="app flex flex-col relative">
-        {isShowing && <div className="bg-green-500 h-8 w-8 flex items-center justify-center text-white rounded-full fixed right-4 bottom-6 md:right-20 md:bottom-14" onClick={() => {
-          dispatch(AddPageOn());
-          console.log('addPage', addPage)
-        }}>
-          <FontAwesomeIcon icon={faPlus} ></FontAwesomeIcon>
-        </div>}
-        {isShowing && <Navbar />}
-        {isLoggedIn && addPage &&  <Addpage/> }
-        {!isShowing && <Cart />}
-        {isShowing && <MainComp />}
-        
-      </div> */}
     </>
   )
 }
