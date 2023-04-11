@@ -4,8 +4,6 @@ import { faFacebook, faGoogle } from "@fortawesome/free-brands-svg-icons";
 import { faCheck, faX } from "@fortawesome/free-solid-svg-icons";
 import { togglePage, toggleSinup } from "../features/SinUpSlice";
 import { useState, useRef } from "react";
-import  "../features/Authentication";
-import { Authentication } from "../features/Authentication";
 import { createUserWithEmailAndPassword, signInWithPopup, signInWithEmailAndPassword } from "firebase/auth";
 import { auth, googleProvider } from "../features/firebaseConfig";
 

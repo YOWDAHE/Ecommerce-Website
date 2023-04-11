@@ -67,7 +67,11 @@ const Cart = () => {
                   }
               </div>
         </div>
-        {insideCart.map(item => <CartItemContainer key={item.id} {...item}/>)}
+          {insideCart.map(item => <CartItemContainer key={item.id} {...item} />)}
+          
+          {insideCart != {} && <button className="mt-10 p-5 py-3 bg-orange-400 self-center rounded-xl w-5/12 text-white hover:bg-orange-300" onClick={() => {
+              cleatCart();
+          }}>Purchase</button>}
     </div>
   )
 }

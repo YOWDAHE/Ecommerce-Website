@@ -6,7 +6,7 @@ import { addAmount, decreaseAmount, emptyAmount, removeFromCart } from "../featu
 const CartItemContainer = ({ id, title, price, img, amount }) => {
     const dispatch = useDispatch();
     return (
-        <div className="h-24 w-auto bg-gray-100 my-1 flex items-center self-center px-2 justify-between md:w-8/12">
+        <div className="h-24 w-12/12 bg-gray-100 my-1 flex items-center md:self-center px-2 justify-between md:w-8/12">
             <div className='h-4/5 w-1/4 container'>
                 <img src={img} alt={title} className="h-full"/>
             </div>

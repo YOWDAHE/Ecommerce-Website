@@ -57,21 +57,21 @@ const ItemCountainer = ({ id, title, price, img, inCart, userId, desc, type }) =
             {userChecker && auth.currentUser && 
                 <div className="flex w-full h-10 items-center justify-evenly">
                     {remove ? 
-                        <div className="bg-red-700 hover:bg-red-500 h-full w-full flex text-white items-center justify-center" onClick={deleteItem}>
+                        <div className="bg-red-700 hover:bg-red-500 h-full w-full flex text-white items-center justify-center hover:cursor-pointer" onClick={deleteItem}>
                             Yes
                         </div>
                         : 
-                        <NavLink to="/addPage" className="bg-blue-700 hover:bg-blue-500 h-full w-full flex text-white items-center justify-center" onClick={updater} state={{ id, title, price, type, desc }}>
+                        <NavLink to="/addPage" className="bg-blue-700 hover:bg-blue-500 h-full w-full flex text-white items-center justify-center hover:cursor-pointer" onClick={updater} state={{ id, title, price, type, desc }}>
                             Update
                         </NavLink>    
                     }
 
                     {remove ?
-                        <div className="bg-green-700 text-white hover:bg-green-500 h-full w-full flex items-center justify-center" onClick={() => setRemove(false)}>
+                        <div className="bg-green-700 text-white hover:bg-green-500 h-full w-full flex items-center justify-center hover:cursor-pointer" onClick={() => setRemove(false)}>
                             No
                         </div>
                         :
-                        <button className="bg-red-700 text-white hover:bg-red-500 h-full w-full flex items-center justify-center" onClick={() => setRemove(true)}>
+                        <button className="bg-red-700 text-white hover:bg-red-500 h-full w-full flex items-center justify-center hover:cursor-pointer" onClick={() => setRemove(true)}>
                             Remove item
                         </button>
                     }

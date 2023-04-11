@@ -71,7 +71,7 @@ const Addpage = () => {
           img: url,
           title: Product,
           price: Price,
-          amount: 0,
+          amount: Amount,
           type: Catagory,
           incart: false,
           desc: description,
@@ -97,7 +97,7 @@ const Addpage = () => {
     <>
       <div className="bg-gray-100 h-10 w-fill flex  px-4 items-center justify-between mb-5">
         <div>
-          <Link to="/">
+          <Link to="/" reloadDocument>
             <FontAwesomeIcon icon={faArrowLeft}></FontAwesomeIcon>
           </Link>
         </div>
