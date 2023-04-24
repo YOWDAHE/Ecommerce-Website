@@ -34,7 +34,8 @@ const ItemCountainer = ({ id, title, price, img, inCart, userId, desc, type }) =
 
 
     return (
-        <div className="h-48 w-72 md:w-56 border-solid  border-gray-200 border-1 shadow-custom shadow-gray-400 m-2 flex flex-col items-center rounded-2xl overflow-hidden">
+        // <div className="h-48 w-72 md:w-56 border-solid  border-gray-200 border-1 shadow-custom shadow-gray-400 m-2 flex flex-col items-center rounded-2xl overflow-hidden">
+        <div className="h-58 w-82 md:w-56 border-solid  border-gray-200 border-2 m-2 flex flex-col items-center  overflow-hidden py-3">
             <div className="h-24 w-full mb-3 flex justify-center">
                 <img src={img} alt={title} className="h-full "/>
             </div>
@@ -44,12 +45,12 @@ const ItemCountainer = ({ id, title, price, img, inCart, userId, desc, type }) =
             <div className={remove ? "bg-red-500 text-xs py-1": ""}>
                 { remove ? 'Are you sure you want to remove the item' : `${price}`}
             </div>
-            {!userChecker && isLoggedIn &&  <div className="flex w-full h-10 items-center justify-evenly">
-                <button className="bg-yellow-500 hover:bg-yellow-400 h-full w-full flex items-center justify-center">
+            {!userChecker && isLoggedIn &&  <div className="flex  w-full h-10 items-center justify-evenly">
+                <button className=" hover:bg-yellow-400 h-full w-5/12 flex items-center justify-center border-solid border-gray-500 border-2 text-sm rounded-md">
                     Purchase
                 </button>
 
-                <button className="bg-blue-600 hover:bg-blue-500 h-full w-full flex items-center justify-center" onClick={() => { addingToCart(id);}}>
+                <button className=" hover:bg-blue-500 h-full w-5/12 flex items-center justify-center border-solid border-gray-500 border-2 text-sm rounded-md" onClick={() => { addingToCart(id);}}>
                     Add to cart
                 </button>
 
@@ -57,21 +58,21 @@ const ItemCountainer = ({ id, title, price, img, inCart, userId, desc, type }) =
             {userChecker && auth.currentUser && 
                 <div className="flex w-full h-10 items-center justify-evenly">
                     {remove ? 
-                        <div className="bg-red-700 hover:bg-red-500 h-full w-full flex text-white items-center justify-center hover:cursor-pointer" onClick={deleteItem}>
+                        <div className=" hover:bg-red-500 h-full w-5/12 flex items-center justify-center hover:cursor-pointer border-solid border-gray-500 border-2 text-sm rounded-md" onClick={deleteItem}>
                             Yes
                         </div>
                         : 
-                        <NavLink to="/addPage" className="bg-blue-700 hover:bg-blue-500 h-full w-full flex text-white items-center justify-center hover:cursor-pointer" onClick={updater} state={{ id, title, price, type, desc }}>
+                        <NavLink to="/addPage" className=" hover:bg-blue-500 h-full w-5/12 flex items-center justify-center hover:cursor-pointer border-solid border-gray-500 border-2 text-sm rounded-md" onClick={updater} state={{ id, title, price, type, desc }}>
                             Update
                         </NavLink>    
                     }
 
                     {remove ?
-                        <div className="bg-green-700 text-white hover:bg-green-500 h-full w-full flex items-center justify-center hover:cursor-pointer" onClick={() => setRemove(false)}>
+                        <div className="  hover:bg-green-500 h-full w-5/12 flex items-center justify-center hover:cursor-pointer border-solid border-gray-500 border-2 text-sm rounded-md" onClick={() => setRemove(false)}>
                             No
                         </div>
                         :
-                        <button className="bg-red-700 text-white hover:bg-red-500 h-full w-full flex items-center justify-center hover:cursor-pointer" onClick={() => setRemove(true)}>
+                        <button className="  hover:bg-red-500 h-full w-5/12 flex items-center justify-center hover:cursor-pointer border-solid border-gray-500 border-2 text-sm rounded-md" onClick={() => setRemove(true)}>
                             Remove item
                         </button>
                     }

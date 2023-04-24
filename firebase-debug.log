@@ -60,3 +60,84 @@ You're about to initialize a Firebase project in this directory:
 [info] 
 [info] +  Success! Logged into GitHub as YOWDAHE 
 [info] 
+[debug] [2023-04-11T05:14:37.075Z] >>> [apiv2][query] GET https://api.github.com/repos/YOWDAHE/Ecommerce-Website/actions/secrets/public-key type=owner
+[debug] [2023-04-11T05:14:37.797Z] <<< [apiv2][status] GET https://api.github.com/repos/YOWDAHE/Ecommerce-Website/actions/secrets/public-key 401
+[debug] [2023-04-11T05:14:37.798Z] <<< [apiv2][body] GET https://api.github.com/repos/YOWDAHE/Ecommerce-Website/actions/secrets/public-key {"message":"Bad credentials","documentation_url":"https://docs.github.com/rest"}
+[debug] [2023-04-11T05:14:52.126Z] >>> [apiv2][query] GET https://api.github.com/repos/YOWDAHE/Ecommerce-Website/actions/secrets/public-key type=owner
+[debug] [2023-04-11T05:14:52.934Z] <<< [apiv2][status] GET https://api.github.com/repos/YOWDAHE/Ecommerce-Website/actions/secrets/public-key 401
+[debug] [2023-04-11T05:14:52.935Z] <<< [apiv2][body] GET https://api.github.com/repos/YOWDAHE/Ecommerce-Website/actions/secrets/public-key {"message":"Bad credentials","documentation_url":"https://docs.github.com/rest"}
+[debug] [2023-04-11T05:15:26.364Z] >>> [apiv2][query] GET https://api.github.com/repos/YOWDAHE/Ecommerce-Website/actions/secrets/public-key type=owner
+[debug] [2023-04-11T05:15:27.007Z] <<< [apiv2][status] GET https://api.github.com/repos/YOWDAHE/Ecommerce-Website/actions/secrets/public-key 401
+[debug] [2023-04-11T05:15:27.008Z] <<< [apiv2][body] GET https://api.github.com/repos/YOWDAHE/Ecommerce-Website/actions/secrets/public-key {"message":"Bad credentials","documentation_url":"https://docs.github.com/rest"}
+[debug] [2023-04-11T05:16:48.615Z] >>> [apiv2][query] GET https://api.github.com/repos/YOWDAHE/Ecommerce-Website/actions/secrets/public-key type=owner
+[debug] [2023-04-11T05:16:49.197Z] <<< [apiv2][status] GET https://api.github.com/repos/YOWDAHE/Ecommerce-Website/actions/secrets/public-key 401
+[debug] [2023-04-11T05:16:49.197Z] <<< [apiv2][body] GET https://api.github.com/repos/YOWDAHE/Ecommerce-Website/actions/secrets/public-key {"message":"Bad credentials","documentation_url":"https://docs.github.com/rest"}
+[debug] [2023-04-11T05:16:49.749Z] >>> [apiv2][query] GET https://api.github.com/repos/YOWDAHE/Ecommerce-Website/actions/secrets/public-key type=owner
+[debug] [2023-04-11T05:16:50.338Z] <<< [apiv2][status] GET https://api.github.com/repos/YOWDAHE/Ecommerce-Website/actions/secrets/public-key 401
+[debug] [2023-04-11T05:16:50.338Z] <<< [apiv2][body] GET https://api.github.com/repos/YOWDAHE/Ecommerce-Website/actions/secrets/public-key {"message":"Bad credentials","documentation_url":"https://docs.github.com/rest"}
+[debug] [2023-04-11T05:16:55.192Z] >>> [apiv2][query] GET https://api.github.com/repos/YOWDAHE/Ecommerce-Website  /actions/secrets/public-key type=owner
+[debug] [2023-04-11T05:16:55.832Z] <<< [apiv2][status] GET https://api.github.com/repos/YOWDAHE/Ecommerce-Website  /actions/secrets/public-key 401
+[debug] [2023-04-11T05:16:55.832Z] <<< [apiv2][body] GET https://api.github.com/repos/YOWDAHE/Ecommerce-Website  /actions/secrets/public-key {"message":"Bad credentials","documentation_url":"https://docs.github.com/rest"}
+[debug] [2023-04-11T05:17:02.387Z] >>> [apiv2][query] GET https://api.github.com/repos/YOWDAHE/Ecommerce-Website  y/actions/secrets/public-key type=owner
+[debug] [2023-04-11T05:17:04.044Z] <<< [apiv2][status] GET https://api.github.com/repos/YOWDAHE/Ecommerce-Website  y/actions/secrets/public-key 401
+[debug] [2023-04-11T05:17:04.045Z] <<< [apiv2][body] GET https://api.github.com/repos/YOWDAHE/Ecommerce-Website  y/actions/secrets/public-key {"message":"Bad credentials","documentation_url":"https://docs.github.com/rest"}
+[debug] [2023-04-11T05:17:22.490Z] >>> [apiv2][query] GET https://api.github.com/repos/YOWDAHE/Ecommerce-Website  /actions/secrets/public-key type=owner
+[debug] [2023-04-11T05:17:23.113Z] <<< [apiv2][status] GET https://api.github.com/repos/YOWDAHE/Ecommerce-Website  /actions/secrets/public-key 401
+[debug] [2023-04-11T05:17:23.114Z] <<< [apiv2][body] GET https://api.github.com/repos/YOWDAHE/Ecommerce-Website  /actions/secrets/public-key {"message":"Bad credentials","documentation_url":"https://docs.github.com/rest"}
+[debug] [2023-04-11T05:17:25.304Z] >>> [apiv2][query] GET https://api.github.com/repos/YOWDAHE/Ecommerce-Website  /actions/secrets/public-key type=owner
+[debug] [2023-04-11T05:17:25.838Z] <<< [apiv2][status] GET https://api.github.com/repos/YOWDAHE/Ecommerce-Website  /actions/secrets/public-key 401
+[debug] [2023-04-11T05:17:25.839Z] <<< [apiv2][body] GET https://api.github.com/repos/YOWDAHE/Ecommerce-Website  /actions/secrets/public-key {"message":"Bad credentials","documentation_url":"https://docs.github.com/rest"}
+[debug] [2023-04-11T05:18:14.419Z] >>> [apiv2][query] GET https://api.github.com/repos/YOWDAHE/Ecommerce-Website/actions/secrets/public-key type=owner
+[debug] [2023-04-11T05:18:15.209Z] <<< [apiv2][status] GET https://api.github.com/repos/YOWDAHE/Ecommerce-Website/actions/secrets/public-key 401
+[debug] [2023-04-11T05:18:15.209Z] <<< [apiv2][body] GET https://api.github.com/repos/YOWDAHE/Ecommerce-Website/actions/secrets/public-key {"message":"Bad credentials","documentation_url":"https://docs.github.com/rest"}
+[debug] [2023-04-11T05:18:16.006Z] >>> [apiv2][query] GET https://api.github.com/repos/YOWDAHE/Ecommerce-Website/actions/secrets/public-key type=owner
+[debug] [2023-04-11T05:18:16.922Z] <<< [apiv2][status] GET https://api.github.com/repos/YOWDAHE/Ecommerce-Website/actions/secrets/public-key 401
+[debug] [2023-04-11T05:18:16.922Z] <<< [apiv2][body] GET https://api.github.com/repos/YOWDAHE/Ecommerce-Website/actions/secrets/public-key {"message":"Bad credentials","documentation_url":"https://docs.github.com/rest"}
+[debug] [2023-04-11T05:18:17.647Z] >>> [apiv2][query] GET https://api.github.com/repos/YOWDAHE/Ecommerce-Website/actions/secrets/public-key type=owner
+[debug] [2023-04-11T05:18:18.259Z] <<< [apiv2][status] GET https://api.github.com/repos/YOWDAHE/Ecommerce-Website/actions/secrets/public-key 401
+[debug] [2023-04-11T05:18:18.259Z] <<< [apiv2][body] GET https://api.github.com/repos/YOWDAHE/Ecommerce-Website/actions/secrets/public-key {"message":"Bad credentials","documentation_url":"https://docs.github.com/rest"}
+[debug] [2023-04-11T05:18:19.038Z] >>> [apiv2][query] GET https://api.github.com/repos/YOWDAHE/Ecommerce-Website/actions/secrets/public-key type=owner
+[debug] [2023-04-11T05:18:19.626Z] <<< [apiv2][status] GET https://api.github.com/repos/YOWDAHE/Ecommerce-Website/actions/secrets/public-key 401
+[debug] [2023-04-11T05:18:19.627Z] <<< [apiv2][body] GET https://api.github.com/repos/YOWDAHE/Ecommerce-Website/actions/secrets/public-key {"message":"Bad credentials","documentation_url":"https://docs.github.com/rest"}
+[debug] [2023-04-11T05:18:20.272Z] >>> [apiv2][query] GET https://api.github.com/repos/YOWDAHE/Ecommerce-Website/actions/secrets/public-key type=owner
+[debug] [2023-04-11T05:18:20.927Z] <<< [apiv2][status] GET https://api.github.com/repos/YOWDAHE/Ecommerce-Website/actions/secrets/public-key 401
+[debug] [2023-04-11T05:18:20.928Z] <<< [apiv2][body] GET https://api.github.com/repos/YOWDAHE/Ecommerce-Website/actions/secrets/public-key {"message":"Bad credentials","documentation_url":"https://docs.github.com/rest"}
+[debug] [2023-04-11T05:18:22.634Z] >>> [apiv2][query] GET https://api.github.com/repos/YOWDAHE/Ecommerce-Website/actions/secrets/public-key type=owner
+[debug] [2023-04-11T05:18:23.294Z] <<< [apiv2][status] GET https://api.github.com/repos/YOWDAHE/Ecommerce-Website/actions/secrets/public-key 401
+[debug] [2023-04-11T05:18:23.294Z] <<< [apiv2][body] GET https://api.github.com/repos/YOWDAHE/Ecommerce-Website/actions/secrets/public-key {"message":"Bad credentials","documentation_url":"https://docs.github.com/rest"}
+[debug] [2023-04-11T11:53:34.311Z] >>> [apiv2][query] GET https://api.github.com/repos/YOWDAHE/Ecommerce-Website/actions/secrets/public-key type=owner
+[debug] [2023-04-11T11:53:36.850Z] <<< [apiv2][status] GET https://api.github.com/repos/YOWDAHE/Ecommerce-Website/actions/secrets/public-key 401
+[debug] [2023-04-11T11:53:36.851Z] <<< [apiv2][body] GET https://api.github.com/repos/YOWDAHE/Ecommerce-Website/actions/secrets/public-key {"message":"Bad credentials","documentation_url":"https://docs.github.com/rest"}
+[debug] [2023-04-11T11:53:40.326Z] >>> [apiv2][query] GET https://api.github.com/repos/YOWDAHE/Ecommerce-Website/actions/secrets/public-key type=owner
+[debug] [2023-04-11T11:53:42.612Z] <<< [apiv2][status] GET https://api.github.com/repos/YOWDAHE/Ecommerce-Website/actions/secrets/public-key 401
+[debug] [2023-04-11T11:53:42.612Z] <<< [apiv2][body] GET https://api.github.com/repos/YOWDAHE/Ecommerce-Website/actions/secrets/public-key {"message":"Bad credentials","documentation_url":"https://docs.github.com/rest"}
+[debug] [2023-04-11T11:53:49.412Z] >>> [apiv2][query] GET https://api.github.com/repos//actions/secrets/public-key type=owner
+[debug] [2023-04-11T11:53:49.919Z] <<< [apiv2][status] GET https://api.github.com/repos//actions/secrets/public-key 401
+[debug] [2023-04-11T11:53:49.920Z] <<< [apiv2][body] GET https://api.github.com/repos//actions/secrets/public-key {"message":"Bad credentials","documentation_url":"https://docs.github.com/rest"}
+[debug] [2023-04-11T11:53:50.822Z] >>> [apiv2][query] GET https://api.github.com/repos//actions/secrets/public-key type=owner
+[debug] [2023-04-11T11:53:51.884Z] <<< [apiv2][status] GET https://api.github.com/repos//actions/secrets/public-key 401
+[debug] [2023-04-11T11:53:51.885Z] <<< [apiv2][body] GET https://api.github.com/repos//actions/secrets/public-key {"message":"Bad credentials","documentation_url":"https://docs.github.com/rest"}
+[debug] [2023-04-11T11:54:10.655Z] >>> [apiv2][query] GET https://api.github.com/repos/y/actions/secrets/public-key type=owner
+[debug] [2023-04-11T11:54:11.188Z] <<< [apiv2][status] GET https://api.github.com/repos/y/actions/secrets/public-key 401
+[debug] [2023-04-11T11:54:11.189Z] <<< [apiv2][body] GET https://api.github.com/repos/y/actions/secrets/public-key {"message":"Bad credentials","documentation_url":"https://docs.github.com/rest"}
+[debug] [2023-04-11T11:54:15.699Z] >>> [apiv2][query] GET https://api.github.com/repos//actions/secrets/public-key type=owner
+[debug] [2023-04-11T11:54:16.222Z] <<< [apiv2][status] GET https://api.github.com/repos//actions/secrets/public-key 401
+[debug] [2023-04-11T11:54:16.222Z] <<< [apiv2][body] GET https://api.github.com/repos//actions/secrets/public-key {"message":"Bad credentials","documentation_url":"https://docs.github.com/rest"}
+[debug] [2023-04-11T11:54:16.776Z] >>> [apiv2][query] GET https://api.github.com/repos//actions/secrets/public-key type=owner
+[debug] [2023-04-11T11:54:17.250Z] <<< [apiv2][status] GET https://api.github.com/repos//actions/secrets/public-key 401
+[debug] [2023-04-11T11:54:17.250Z] <<< [apiv2][body] GET https://api.github.com/repos//actions/secrets/public-key {"message":"Bad credentials","documentation_url":"https://docs.github.com/rest"}
+[debug] [2023-04-11T11:54:17.790Z] >>> [apiv2][query] GET https://api.github.com/repos/ /actions/secrets/public-key type=owner
+[debug] [2023-04-11T11:54:18.260Z] <<< [apiv2][status] GET https://api.github.com/repos/ /actions/secrets/public-key 401
+[debug] [2023-04-11T11:54:18.261Z] <<< [apiv2][body] GET https://api.github.com/repos/ /actions/secrets/public-key {"message":"Bad credentials","documentation_url":"https://docs.github.com/rest"}
+[debug] [2023-04-11T11:54:18.994Z] >>> [apiv2][query] GET https://api.github.com/repos/  /actions/secrets/public-key type=owner
+[debug] [2023-04-11T11:54:19.484Z] <<< [apiv2][status] GET https://api.github.com/repos/  /actions/secrets/public-key 401
+[debug] [2023-04-11T11:54:19.484Z] <<< [apiv2][body] GET https://api.github.com/repos/  /actions/secrets/public-key {"message":"Bad credentials","documentation_url":"https://docs.github.com/rest"}
+[debug] [2023-04-11T11:54:20.165Z] >>> [apiv2][query] GET https://api.github.com/repos/   /actions/secrets/public-key type=owner
+[debug] [2023-04-11T11:54:20.975Z] <<< [apiv2][status] GET https://api.github.com/repos/   /actions/secrets/public-key 401
+[debug] [2023-04-11T11:54:20.976Z] <<< [apiv2][body] GET https://api.github.com/repos/   /actions/secrets/public-key {"message":"Bad credentials","documentation_url":"https://docs.github.com/rest"}
+[debug] [2023-04-11T11:54:21.375Z] >>> [apiv2][query] GET https://api.github.com/repos/    /actions/secrets/public-key type=owner
+[debug] [2023-04-11T11:54:21.857Z] <<< [apiv2][status] GET https://api.github.com/repos/    /actions/secrets/public-key 401
+[debug] [2023-04-11T11:54:21.857Z] <<< [apiv2][body] GET https://api.github.com/repos/    /actions/secrets/public-key {"message":"Bad credentials","documentation_url":"https://docs.github.com/rest"}
+[debug] [2023-04-11T11:54:22.556Z] >>> [apiv2][query] GET https://api.github.com/repos/     /actions/secrets/public-key type=owner
+[debug] [2023-04-11T11:54:24.110Z] <<< [apiv2][status] GET https://api.github.com/repos/     /actions/secrets/public-key 401
+[debug] [2023-04-11T11:54:24.111Z] <<< [apiv2][body] GET https://api.github.com/repos/     /actions/secrets/public-key {"message":"Bad credentials","documentation_url":"https://docs.github.com/rest"}
