@@ -1,6 +1,6 @@
 import {CartIcon, UserIcon} from "../icon";
 import { useSelector, useDispatch } from "react-redux";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { auth } from "../features/firebaseConfig";
 import { signOut } from "firebase/auth";
 import { togglePage, AddPageOff } from "../features/SinUpSlice";
@@ -50,6 +50,7 @@ const Navbar = () => {
         srchBtn.current.value = '';
         setFiltteredList(cartItems.filter(item => item.title == search))
     }
+
 
     return (
         <div>

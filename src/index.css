@@ -40,14 +40,23 @@ body {
 .back{
   background-image: url('./source/wallhaven-dgryeg.png');
   opacity: .7;
-  background-size: cover;
-  height: 100vw;
+  background-size: contain;
+  filter: blur(10px);
+  height: 100%;
+  width: 100%;
   position: absolute;
   top: 0;
 }
 
 .main{
-
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  /* background-color: red; */
+  overflow: scroll;
+  /* opacity: 1; */
+  /* z-index: 10; */
 }
 a {
   text-decoration: none;

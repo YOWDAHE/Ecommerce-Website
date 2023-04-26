@@ -1,9 +1,9 @@
 import Navbar from "./Components/Navbar";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector, useDispatch, Provider } from "react-redux";
 import Cart from "./Components/Cart";
 import MainComp from "./Components/MainComponent";
 import { calculateTotals, setCart } from "./features/cartSlice";
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import SinUp from "./Components/SinUp";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./features/firebaseConfig";
@@ -57,11 +57,18 @@ function App() {
       }
     })
   })
+  // const [scroll, setScroll] = useState(true);
+  // const mainScroll = useRef();
+  const mainComp = document.getElementById('mainComp');
 
+  
 
   return (
-    <div className="back">
-      <div className="main">
+    <>
+      <div className="back">
+
+      </div>
+      <div className="main" id="mainComp">
 
         {SinUPIsShowing && <SinUp />}
         <Routes>
@@ -72,7 +79,7 @@ function App() {
         </Routes>
 
       </div>
-    </div>
+    </>
   )
 }
 export default App;
