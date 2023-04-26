@@ -58,7 +58,6 @@ const SinUp = () => {
     }
     const submiting = async (e) => {
         e.preventDefault();
-        console.log(auth?.currentUser?.uid);
         if (passwordCorrect === true && sinup) {
             siningUp();
         }

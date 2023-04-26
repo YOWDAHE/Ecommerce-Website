@@ -6,7 +6,8 @@ module.exports = {
   theme: {
     extend: {
       boxShadow: {
-        'custom': '0px 15px 15px -5px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)',
+        'custom': '0px 10px 15px -5px rgb(0 0 0 / 0.1)',
+        'cumsom-hover': '0px 10px 15px -5px rgb(0 0 0 / 0.3)',
       }
     },
   },

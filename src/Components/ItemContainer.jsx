@@ -5,6 +5,7 @@ import { doc, deleteDoc } from 'firebase/firestore';
 import { db } from "../features/firebaseConfig";
 import { Link, NavLink } from "react-router-dom";
 import { useState } from "react";
+import "../index.css";
 
 
 const ItemCountainer = ({ id, title, price, img, inCart, userId, desc, type }) => {
@@ -35,44 +36,44 @@ const ItemCountainer = ({ id, title, price, img, inCart, userId, desc, type }) =
 
     return (
         // <div className="h-48 w-72 md:w-56 border-solid  border-gray-200 border-1 shadow-custom shadow-gray-400 m-2 flex flex-col items-center rounded-2xl overflow-hidden">
-        <div className="h-58 w-82 md:w-56 border-solid  border-gray-200 border-2 m-2 flex flex-col items-center  overflow-hidden py-3">
-            <div className="h-24 w-full mb-3 flex justify-center">
+        <div className="h-58 w-82 md:w-56 border-solid  border-gray-200 border-2 m-2 flex flex-col items-center  overflow-hidden py-2 shadow-custom hover:shadow-cumsom-hover transition-shadow rounded-md bg-white">
+            <div className="h-24 w-full mb-3 flex justify-center ">
                 <img src={img} alt={title} className="h-full "/>
             </div>
-            <div>
+            <div className="font-semibold">
                 {title}
             </div>
             <div className={remove ? "bg-red-500 text-xs py-1": ""}>
-                { remove ? 'Are you sure you want to remove the item' : `${price}`}
+                { remove ? 'Are you sure you want to remove the item' : `$${price}`}
             </div>
-            {!userChecker && isLoggedIn &&  <div className="flex  w-full h-10 items-center justify-evenly">
-                <button className=" hover:bg-yellow-400 h-full w-5/12 flex items-center justify-center border-solid border-gray-500 border-2 text-sm rounded-md">
+            {!userChecker && isLoggedIn &&  <div className="flex  w-full h-10 items-center justify-evenly mt-4">
+                <button className=" hover:bg-gray-200 hover:border-gray-700 h-full w-5/12 flex items-center justify-center border-solid border-gray-500 border-2 text-sm rounded-sm">
                     Purchase
                 </button>
 
-                <button className=" hover:bg-blue-500 h-full w-5/12 flex items-center justify-center border-solid border-gray-500 border-2 text-sm rounded-md" onClick={() => { addingToCart(id);}}>
+                <button className=" hover:bg-gray-200 hover:border-gray-700 h-full w-5/12 flex items-center justify-center border-solid border-gray-500 border-2 text-sm rounded-sm" onClick={() => { addingToCart(id);}}>
                     Add to cart
                 </button>
 
             </div>}
             {userChecker && auth.currentUser && 
-                <div className="flex w-full h-10 items-center justify-evenly">
+                <div className="flex w-full h-10 items-center justify-evenly mt-4">
                     {remove ? 
-                        <div className=" hover:bg-red-500 h-full w-5/12 flex items-center justify-center hover:cursor-pointer border-solid border-gray-500 border-2 text-sm rounded-md" onClick={deleteItem}>
+                        <div className=" hover:bg-gray-200 hover:border-gray-700 h-full w-5/12 flex items-center justify-center hover:cursor-pointer border-solid border-gray-500 border-2 text-sm rounded-sm" onClick={deleteItem}>
                             Yes
                         </div>
                         : 
-                        <NavLink to="/addPage" className=" hover:bg-blue-500 h-full w-5/12 flex items-center justify-center hover:cursor-pointer border-solid border-gray-500 border-2 text-sm rounded-md" onClick={updater} state={{ id, title, price, type, desc }}>
+                        <NavLink to="/addPage" className=" hover:bg-gray-200 hover:border-gray-700 h-full w-5/12 flex items-center justify-center hover:cursor-pointer border-solid border-gray-500 border-2 text-sm rounded-sm" onClick={updater} state={{ id, title, price, type, desc }}>
                             Update
                         </NavLink>    
                     }
 
                     {remove ?
-                        <div className="  hover:bg-green-500 h-full w-5/12 flex items-center justify-center hover:cursor-pointer border-solid border-gray-500 border-2 text-sm rounded-md" onClick={() => setRemove(false)}>
+                        <div className="  hover:bg-gray-200 hover:border-gray-700 h-full w-5/12 flex items-center justify-center hover:cursor-pointer border-solid border-gray-500 border-2 text-sm rounded-sm" onClick={() => setRemove(false)}>
                             No
                         </div>
                         :
-                        <button className="  hover:bg-red-500 h-full w-5/12 flex items-center justify-center hover:cursor-pointer border-solid border-gray-500 border-2 text-sm rounded-md" onClick={() => setRemove(true)}>
+                        <button className="  hover:bg-gray-200 hover:border-gray-700 h-full w-5/12 flex items-center justify-center hover:cursor-pointer border-solid border-gray-500 border-2 text-sm rounded-sm" onClick={() => setRemove(true)}>
                             Remove item
                         </button>
                     }

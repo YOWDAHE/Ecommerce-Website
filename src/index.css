@@ -35,6 +35,19 @@ body {
   color: var(--clr-grey-1);
   line-height: 1.5;
   font-size: 0.875rem; */
+  background-color: rgb(0, 0, 0);
+}
+.back{
+  background-image: url('./source/wallhaven-dgryeg.png');
+  opacity: .7;
+  background-size: cover;
+  height: 100vw;
+  position: absolute;
+  top: 0;
+}
+
+.main{
+
 }
 a {
   text-decoration: none;

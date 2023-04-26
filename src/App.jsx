@@ -7,12 +7,13 @@ import { useEffect, useState } from "react";
 import SinUp from "./Components/SinUp";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./features/firebaseConfig";
-import { toggleLoggedFalse, toggleLoggedTrue, AddPageOff, AddPageOn} from "./features/SinUpSlice";
+import { toggleLoggedFalse, toggleLoggedTrue, AddPageOff, AddPageOn } from "./features/SinUpSlice";
 import Addpage from "./Components/Addpage";
 
 import { collection, getDocs, doc } from 'firebase/firestore';
 import { db } from "./features/firebaseConfig";
 import { Navigate, Route, Routes } from "react-router-dom";
+import "./index.css";
 
 
 
@@ -34,7 +35,7 @@ function App() {
       setItem(res);
     }
     getUser();
-  
+
   }, [])
 
   const setItem = (it) => {
@@ -59,16 +60,19 @@ function App() {
 
 
   return (
-    <>
-      {SinUPIsShowing && <SinUp/>}
-      <Routes>
-        <Route path="/" element={<MainComp/>} />
-        <Route path="/cart" element={<Cart/>} />
-        <Route path="/addPage" element={<Addpage />} />
-        <Route path="*" element={ <Navigate to="/" /> } />
-      </Routes>
+    <div className="back">
+      <div className="main">
 
-    </>
+        {SinUPIsShowing && <SinUp />}
+        <Routes>
+          <Route path="/" element={<MainComp />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/addPage" element={<Addpage />} />
+          <Route path="*" element={<Navigate to="/" />} />
+        </Routes>
+
+      </div>
+    </div>
   )
 }
 export default App;

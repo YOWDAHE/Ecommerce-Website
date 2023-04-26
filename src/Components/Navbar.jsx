@@ -54,7 +54,7 @@ const Navbar = () => {
     return (
         <div>
             
-            <div className="bg-gray-100 flex h-15 w-11/12 mt-4 mx-5 rounded-full p-2 px-4 items-center text-gray-900 border-solid border-gray-200 border-b-2 md:w-3/5 ml-auto mr-auto">
+            <div className=" flex h-15 w-11/12 mt-4 mx-5 rounded-xl p-2 px-4 items-center text-gray-900 border-solid border-gray-300 border-2 md:w-3/5 ml-auto mr-auto">
                 <div className="mr-auto ml-1 text-lg font-bold text-gray-700 tracking-wider">
                     Company
                 </div>
